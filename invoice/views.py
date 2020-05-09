@@ -9,6 +9,7 @@ from django.core.cache import cache
 from django.views import View
 from .forms import  InvoiceForm
 
+from datetime import datetime
 # Create your views here.
 
 client_id = '60C8B19E86FC4791A5B83858C00A7AE4'
@@ -72,6 +73,7 @@ class CreateInvoiceView(View):
         "Contact": {
           "ContactID": str(ContactID)
         },
+        "DueDate": datetime.now(),
         "DateString": str(DateString),
         "DueDateString": str(DueDateString),
         "LineAmountTypes": str(LineAmountTypes),
