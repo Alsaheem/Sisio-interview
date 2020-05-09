@@ -1,0 +1,18 @@
+{
+  "Type": "ACCREC",
+  "Contact": {
+    "ContactID": "39cd38d6-4add-46ab-8522-5f33918becc1"
+  },
+  "DateString": "2009-05-27T00:00:00",
+  "DueDateString": "2009-06-06T00:00:00",
+  "LineAmountTypes": "Exclusive",
+  "LineItems": [
+    {
+      "Description": "Consulting services as agreed (20% off standard rate)",
+      "Quantity": "10",
+      "UnitAmount": "100.00",
+      "AccountCode": "200",
+      "DiscountRate": "20"
+    }
+  ]
+}
