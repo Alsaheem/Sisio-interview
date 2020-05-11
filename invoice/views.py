@@ -64,32 +64,33 @@ class CreateInvoiceView(View):
       DueDateString = form.cleaned_data['DueDateString']
       LineAmountTypes = form.cleaned_data['LineAmountTypes']
       Description = form.cleaned_data['Description']
-      Quantity = form.cleaned_data['Quantity']
-      UnitAmount = form.cleaned_data['UnitAmount']
-      AccountCode = form.cleaned_data['AccountCode']
-      DiscountRate = form.cleaned_data['DiscountRate']
+      Quantity =  form.cleaned_data['Quantity']
+      UnitAmount =  form.cleaned_data['UnitAmount']
+      AccountCode =  form.cleaned_data['AccountCode']
+      DiscountRate =  form.cleaned_data['DiscountRate']
+      print(form.cleaned_data['DiscountRate'])
       data = {
         "Type": Type,
         "Contact": {
-          "ContactID": str(ContactID)
+          "ContactID":  str(ContactID)
         },
         "DueDate": datetime.now(),
-        "DateString": str(DateString),
-        "DueDateString": str(DueDateString),
-        "LineAmountTypes": str(LineAmountTypes),
+        "DateString": DateString,
+        "DueDateString": DueDateString,
+        "LineAmountTypes": LineAmountTypes,
         "LineItems": [
           {
-            "Description": str(Description),
-            "Quantity": str(Quantity),
-            "UnitAmount": str(UnitAmount),
-            "AccountCode": str(AccountCode),
-            "DiscountRate": str(DiscountRate)
+            "Description": Description,
+            "Quantity": "10",
+            "UnitAmount": "100.00",
+            "AccountCode": "200",
+            "DiscountRate": "20"
           }
         ],
          "Status": "AUTHORISED"
       }
-      # process the data in form.cleaned_data as required
       xero.invoices.put(data)
-      return HttpResponse('valid Details sent')
+
+      return render(request,'success.html', context={})
     else:
       return HttpResponse('Invalid Details')
